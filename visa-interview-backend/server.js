@@ -1,13 +1,15 @@
 const express = require('express');
 const { Server } = require('socket.io');
 const { OpenAI } = require('openai');
+const cors = require('cors');
+
 require('dotenv').config();
 
 const app = express();
 const server = require('http').createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: '*', // Allow all origins (restrict in production, e.g., your Netlify URL)
+    origin: 'https://usmockinterview.netlify.app', // Allow all origins (restrict in production, e.g., your Netlify URL)
     methods: ['GET', 'POST']
   }
 });
